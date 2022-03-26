@@ -1,0 +1,277 @@
+{
+    "contractName": "Time",
+    "abi": [
+        {
+            "inputs": [],
+            "name": "getCurrentTimeStamp",
+            "outputs": [
+                {
+                    "internalType": "uint256",
+                    "name": "",
+                    "type": "uint256"
+                }
+            ],
+            "stateMutability": "view",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"name\":\"getCurrentTimeStamp\",\"outputs\":[{\"internalType\":\"uint256\",\"name\":\"\",\"type\":\"uint256\"}],\"stateMutability\":\"view\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"c:/Users/USER/Desktop/Solidity/ConceptofTime.sol\":\"Time\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"c:/Users/USER/Desktop/Solidity/ConceptofTime.sol\":{\"keccak256\":\"0xf9eabb823cd705e1667d4eb012b867c993d69238e32ac158cfd88afa634490e1\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://a638f8b7630556a8c0f1d17a85e3927ceb4de36ae183cf34df6c8b27b8eba60d\",\"dweb:/ipfs/QmbuyimRVCCxgzwrX6N4unT1UNm3bcHPjDNZiny1YJqRUy\"]}},\"version\":1}",
+    "bytecode": "608060405242600055620d2f00600155348015601a57600080fd5b5060768060286000396000f3fe6080604052348015600f57600080fd5b506004361060285760003560e01c80637e5e219c14602d575b600080fd5b4260405190815260200160405180910390f3fea26469706673582212208360b9cca22a7267bf3151d539138caa2369d6ea83503a27f766c1a616d7cea164736f6c634300080d0033",
+    "deployedBytecode": "6080604052348015600f57600080fd5b506004361060285760003560e01c80637e5e219c14602d575b600080fd5b4260405190815260200160405180910390f3fea26469706673582212208360b9cca22a7267bf3151d539138caa2369d6ea83503a27f766c1a616d7cea164736f6c634300080d0033",
+    "sourceMap": "138:239:0:-:0;;;187:15;158:44;;228:7;209:26;;138:239;;;;;;;;;;;;;;;;",
+    "deployedSourceMap": "138:239:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;274:98;349:15;274:98;;160:25:1;;;148:2;133:18;274:98:0;;;;;;",
+    "sourcePath": "c:/Users/USER/Desktop/Solidity/ConceptofTime.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.13+commit.abaa5c0e"
+    },
+    "ast": {
+        "absolutePath": "c:/Users/USER/Desktop/Solidity/ConceptofTime.sol",
+        "exportedSymbols": {
+            "Time": [
+                18
+            ]
+        },
+        "id": 19,
+        "license": "MIT",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 1,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".13"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "110:24:0"
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "canonicalName": "Time",
+                "contractDependencies": [],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 18,
+                "linearizedBaseContracts": [
+                    18
+                ],
+                "name": "Time",
+                "nameLocation": "147:4:0",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "constant": false,
+                        "id": 5,
+                        "mutability": "mutable",
+                        "name": "biddingStartTimeStamp",
+                        "nameLocation": "163:21:0",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 18,
+                        "src": "158:44:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 2,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "158:4:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "value": {
+                            "expression": {
+                                "id": 3,
+                                "name": "block",
+                                "nodeType": "Identifier",
+                                "overloadedDeclarations": [],
+                                "referencedDeclaration": 4294967292,
+                                "src": "187:5:0",
+                                "typeDescriptions": {
+                                    "typeIdentifier": "t_magic_block",
+                                    "typeString": "block"
+                                }
+                            },
+                            "id": 4,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": false,
+                            "lValueRequested": false,
+                            "memberName": "timestamp",
+                            "nodeType": "MemberAccess",
+                            "src": "187:15:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "visibility": "internal"
+                    },
+                    {
+                        "constant": false,
+                        "id": 8,
+                        "mutability": "mutable",
+                        "name": "biddingDays",
+                        "nameLocation": "214:11:0",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 18,
+                        "src": "209:26:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_uint256",
+                            "typeString": "uint256"
+                        },
+                        "typeName": {
+                            "id": 6,
+                            "name": "uint",
+                            "nodeType": "ElementaryTypeName",
+                            "src": "209:4:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_uint256",
+                                "typeString": "uint256"
+                            }
+                        },
+                        "value": {
+                            "hexValue": "3130",
+                            "id": 7,
+                            "isConstant": false,
+                            "isLValue": false,
+                            "isPure": true,
+                            "kind": "number",
+                            "lValueRequested": false,
+                            "nodeType": "Literal",
+                            "src": "228:7:0",
+                            "subdenomination": "days",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_rational_864000_by_1",
+                                "typeString": "int_const 864000"
+                            },
+                            "value": "10"
+                        },
+                        "visibility": "internal"
+                    },
+                    {
+                        "body": {
+                            "id": 16,
+                            "nodeType": "Block",
+                            "src": "331:41:0",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "expression": {
+                                            "id": 13,
+                                            "name": "block",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 4294967292,
+                                            "src": "349:5:0",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_magic_block",
+                                                "typeString": "block"
+                                            }
+                                        },
+                                        "id": 14,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "memberName": "timestamp",
+                                        "nodeType": "MemberAccess",
+                                        "src": "349:15:0",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "functionReturnParameters": 12,
+                                    "id": 15,
+                                    "nodeType": "Return",
+                                    "src": "342:22:0"
+                                }
+                            ]
+                        },
+                        "functionSelector": "7e5e219c",
+                        "id": 17,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "getCurrentTimeStamp",
+                        "nameLocation": "283:19:0",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 9,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "302:2:0"
+                        },
+                        "returnParameters": {
+                            "id": 12,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 11,
+                                    "mutability": "mutable",
+                                    "name": "",
+                                    "nameLocation": "-1:-1:-1",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 17,
+                                    "src": "326:4:0",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_uint256",
+                                        "typeString": "uint256"
+                                    },
+                                    "typeName": {
+                                        "id": 10,
+                                        "name": "uint",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "326:4:0",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_uint256",
+                                            "typeString": "uint256"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "325:6:0"
+                        },
+                        "scope": 18,
+                        "src": "274:98:0",
+                        "stateMutability": "view",
+                        "virtual": false,
+                        "visibility": "public"
+                    }
+                ],
+                "scope": 19,
+                "src": "138:239:0",
+                "usedErrors": []
+            }
+        ],
+        "src": "110:267:0"
+    },
+    "functionHashes": {
+        "getCurrentTimeStamp()": "7e5e219c"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "23600",
+            "executionCost": "44286",
+            "totalCost": "67886"
+        },
+        "external": {
+            "getCurrentTimeStamp()": "145"
+        }
+    }
+}

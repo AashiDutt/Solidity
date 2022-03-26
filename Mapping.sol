@@ -4,7 +4,7 @@ pragma solidity ^0.8.13;
 contract MappingStruct{
 
     mapping(address => bool) public myAddressBoolMapping;
-
+    
     function writeBoolMapping(address _address, bool _bool) public {
         myAddressBoolMapping[_address] = _bool;
     }
