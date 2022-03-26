@@ -5,7 +5,9 @@ contract HelloWorld{
 
     string public helloworld = "Hello World!!";
 
-    function killMe() public{
-        selfdestruct(msg.sender);
+    function killMe() public payable{
+        address admin;
+        require(msg.sender == admin);
+        selfdestruct(payable(admin));
     }
 }

@@ -1,1 +1,1 @@
-[{"inputs":[{"internalType":"string","name":"_helloworld","type":"string"}],"name":"WriteIntoHelloWorld","outputs":[],"stateMutability":"nonpayable","type":"function"},{"inputs":[],"name":"helloworld","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"}]
+[{"inputs":[],"name":"helloworld","outputs":[{"internalType":"string","name":"","type":"string"}],"stateMutability":"view","type":"function"},{"inputs":[],"name":"killMe","outputs":[],"stateMutability":"payable","type":"function"}]
