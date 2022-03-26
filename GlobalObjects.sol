@@ -1,6 +1,7 @@
+// SPDX-License-Identifier: MIT
 // Code for global objects, constructors, modifiers
 
-pragma solidity ^0.5.0;
+pragma solidity ^0.8.13;
 
 contract GlobalObjects{
 
@@ -9,7 +10,7 @@ contract GlobalObjects{
 
     bool public auctionIsRunning = true;
 
-    constructor() public {
+    constructor(){
         owner = msg.sender;
     }
 
