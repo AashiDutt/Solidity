@@ -1,0 +1,1138 @@
+{
+    "contractName": "GameManager",
+    "abi": [
+        {
+            "inputs": [],
+            "stateMutability": "nonpayable",
+            "type": "constructor"
+        },
+        {
+            "anonymous": false,
+            "inputs": [
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "_player",
+                    "type": "address"
+                },
+                {
+                    "indexed": false,
+                    "internalType": "address",
+                    "name": "_gameAddress",
+                    "type": "address"
+                }
+            ],
+            "name": "EventGameCreated",
+            "type": "event"
+        },
+        {
+            "inputs": [
+                {
+                    "internalType": "address",
+                    "name": "_winner",
+                    "type": "address"
+                }
+            ],
+            "name": "enterWinner",
+            "outputs": [],
+            "stateMutability": "nonpayable",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "getTop10",
+            "outputs": [],
+            "stateMutability": "view",
+            "type": "function"
+        },
+        {
+            "inputs": [],
+            "name": "startNewGame",
+            "outputs": [],
+            "stateMutability": "payable",
+            "type": "function"
+        }
+    ],
+    "metadata": "{\"compiler\":{\"version\":\"0.8.13+commit.abaa5c0e\"},\"language\":\"Solidity\",\"output\":{\"abi\":[{\"inputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"constructor\"},{\"anonymous\":false,\"inputs\":[{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_player\",\"type\":\"address\"},{\"indexed\":false,\"internalType\":\"address\",\"name\":\"_gameAddress\",\"type\":\"address\"}],\"name\":\"EventGameCreated\",\"type\":\"event\"},{\"inputs\":[{\"internalType\":\"address\",\"name\":\"_winner\",\"type\":\"address\"}],\"name\":\"enterWinner\",\"outputs\":[],\"stateMutability\":\"nonpayable\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"getTop10\",\"outputs\":[],\"stateMutability\":\"view\",\"type\":\"function\"},{\"inputs\":[],\"name\":\"startNewGame\",\"outputs\":[],\"stateMutability\":\"payable\",\"type\":\"function\"}],\"devdoc\":{\"kind\":\"dev\",\"methods\":{},\"version\":1},\"userdoc\":{\"kind\":\"user\",\"methods\":{},\"version\":1}},\"settings\":{\"compilationTarget\":{\"c:/Users/USER/Desktop/Solidity/TickTackToeGame/GameManager.sol\":\"GameManager\"},\"evmVersion\":\"london\",\"libraries\":{},\"metadata\":{\"bytecodeHash\":\"ipfs\"},\"optimizer\":{\"enabled\":true,\"runs\":200},\"remappings\":[]},\"sources\":{\"c:/Users/USER/Desktop/Solidity/TickTackToeGame/GameManager.sol\":{\"keccak256\":\"0x4e0910d079bfc77d4ffac619137abab070298ccfb167990bddef1192edfcc006\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://9d2b787ac413b67c5a303b8eaae7e52eed6c53becbb6d15d6920304f2a53cbf8\",\"dweb:/ipfs/QmaZHLWMWu5J62CWejV691FygGVGqbG6xEcSq6XcetgnN2\"]},\"c:/Users/USER/Desktop/Solidity/TickTackToeGame/HighScoreManager.sol\":{\"keccak256\":\"0x5fd53771a15472877828d62a6ee1f40908631bfe08cdddc990e9c9df672a1d99\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://623ea5d6a7002d3ae289f1eb6dc3c5ad18f7d99383f7c6ec56b8adf2f8753c4e\",\"dweb:/ipfs/QmfU6kcwRBdygD8h1GSXZgmPxmE8m1p3a3qPJW42bDhpKa\"]},\"c:/Users/USER/Desktop/Solidity/TickTackToeGame/ThreeInARow.sol\":{\"keccak256\":\"0xa701e5258dbcbfe396451ff1bfbe5b8c85a6160f65a134ac2f20baa3c9c5c177\",\"license\":\"MIT\",\"urls\":[\"bzz-raw://72bec2090b8dcf73a91af076516e64c68345f393f42c044a514e175798c9fc1e\",\"dweb:/ipfs/QmP2tivy6X71kefnvn31nGfQnqtfcoMjyvcBtT7sWbyFuG\"]}},\"version\":1}",
+    "bytecode": "608060405234801561001057600080fd5b503060405161001e90610070565b6001600160a01b039091168152602001604051809103906000f08015801561004a573d6000803e3d6000fd5b50600080546001600160a01b0319166001600160a01b039290921691909117905561007d565b610157806105b283390190565b6105268061008c6000396000f3fe6080604052600436106100345760003560e01c8063482d51e01461003957806384837ee114610043578063d2add17b1461004f575b600080fd5b61004161006d565b005b34801561004157600080fd5b34801561005b57600080fd5b5061004161006a366004610115565b50565b6000331561007a57600080fd5b600034308360405161008b90610108565b6001600160a01b039283168152911660208201526040016040518091039082f09050801580156100bf573d6000803e3d6000fd5b50604080513381526001600160a01b03831660208201529192507fffedcfc5617a2a5435647110e8c02752bcaae6960ff6df59d68f13d58f550ada910160405180910390a15050565b6103ab8061014683390190565b60006020828403121561012757600080fd5b81356001600160a01b038116811461013e57600080fd5b939250505056fe608060405267016345785d8a00006001556040516103ab3803806103ab83398101604081905261002e916100cd565b600080546001600160a01b0319166001600160a01b038416179055600154341461008f5760405162461bcd60e51b815260206004820152600e60248201526d416464206d6f7265206d6f6e657960901b604482015260640160405180910390fd5b600280546001600160a01b0319166001600160a01b039290921691909117905550610107565b6001600160a01b03811681146100ca57600080fd5b50565b600080604083850312156100e057600080fd5b82516100eb816100b5565b60208401519092506100fc816100b5565b809150509250929050565b610295806101166000396000f3fe60806040526004361061007b5760003560e01c8063cab896dc1161004e578063cab896dc14610112578063d30895e414610136578063d4f77b1c146100b9578063fb815503146100ab57600080fd5b80633264a34b146100805780633fde48ca146100ab57806359a5f12d146100bb5780637d3f9074146100f3575b600080fd5b34801561008c57600080fd5b50610095610156565b6040516100a291906101ac565b60405180910390f35b3480156100b757600080fd5b505b005b3480156100c757600080fd5b506003546100db906001600160a01b031681565b6040516001600160a01b0390911681526020016100a2565b3480156100ff57600080fd5b506100b961010e36600461022c565b5050565b34801561011e57600080fd5b5061012860015481565b6040519081526020016100a2565b34801561014257600080fd5b506002546100db906001600160a01b031681565b61015e610161565b90565b60405180606001604052806003905b61017861018e565b8152602001906001900390816101705790505090565b60405180606001604052806003906020820280368337509192915050565b610120810181836000805b60038082106101c6575061020c565b835185845b838110156101f25782516001600160a01b03168252602092830192909101906001016101cb565b5050506060949094019350602092909201916001016101b7565b5050505092915050565b803560ff8116811461022757600080fd5b919050565b6000806040838503121561023f57600080fd5b61024883610216565b915061025660208401610216565b9050925092905056fea2646970667358221220b2e8d8928b84e4c021fb216943bec8e82d86e21ec75a19fe905296169f1f50d264736f6c634300080d0033a2646970667358221220cbcf261769a30dc2510e899d060514c1b2f6d57b9dbe79a9346269f0c9b78d5b64736f6c634300080d0033608060405234801561001057600080fd5b5060405161015738038061015783398101604081905261002f91610054565b600080546001600160a01b0319166001600160a01b0392909216919091179055610084565b60006020828403121561006657600080fd5b81516001600160a01b038116811461007d57600080fd5b9392505050565b60c5806100926000396000f3fe6080604052348015600f57600080fd5b506004361060325760003560e01c806307f9089c14603757806384837ee1146046575b600080fd5b604660423660046061565b6048565b005b6000546001600160a01b03163314605e57600080fd5b50565b600060208284031215607257600080fd5b81356001600160a01b0381168114608857600080fd5b939250505056fea2646970667358221220b37a5253bfc0923cdf663e5ebd99d39edfbd262ef811559e21ac7a4840ecfb5364736f6c634300080d0033",
+    "deployedBytecode": "6080604052600436106100345760003560e01c8063482d51e01461003957806384837ee114610043578063d2add17b1461004f575b600080fd5b61004161006d565b005b34801561004157600080fd5b34801561005b57600080fd5b5061004161006a366004610115565b50565b6000331561007a57600080fd5b600034308360405161008b90610108565b6001600160a01b039283168152911660208201526040016040518091039082f09050801580156100bf573d6000803e3d6000fd5b50604080513381526001600160a01b03831660208201529192507fffedcfc5617a2a5435647110e8c02752bcaae6960ff6df59d68f13d58f550ada910160405180910390a15050565b6103ab8061014683390190565b60006020828403121561012757600080fd5b81356001600160a01b038116811461013e57600080fd5b939250505056fe608060405267016345785d8a00006001556040516103ab3803806103ab83398101604081905261002e916100cd565b600080546001600160a01b0319166001600160a01b038416179055600154341461008f5760405162461bcd60e51b815260206004820152600e60248201526d416464206d6f7265206d6f6e657960901b604482015260640160405180910390fd5b600280546001600160a01b0319166001600160a01b039290921691909117905550610107565b6001600160a01b03811681146100ca57600080fd5b50565b600080604083850312156100e057600080fd5b82516100eb816100b5565b60208401519092506100fc816100b5565b809150509250929050565b610295806101166000396000f3fe60806040526004361061007b5760003560e01c8063cab896dc1161004e578063cab896dc14610112578063d30895e414610136578063d4f77b1c146100b9578063fb815503146100ab57600080fd5b80633264a34b146100805780633fde48ca146100ab57806359a5f12d146100bb5780637d3f9074146100f3575b600080fd5b34801561008c57600080fd5b50610095610156565b6040516100a291906101ac565b60405180910390f35b3480156100b757600080fd5b505b005b3480156100c757600080fd5b506003546100db906001600160a01b031681565b6040516001600160a01b0390911681526020016100a2565b3480156100ff57600080fd5b506100b961010e36600461022c565b5050565b34801561011e57600080fd5b5061012860015481565b6040519081526020016100a2565b34801561014257600080fd5b506002546100db906001600160a01b031681565b61015e610161565b90565b60405180606001604052806003905b61017861018e565b8152602001906001900390816101705790505090565b60405180606001604052806003906020820280368337509192915050565b610120810181836000805b60038082106101c6575061020c565b835185845b838110156101f25782516001600160a01b03168252602092830192909101906001016101cb565b5050506060949094019350602092909201916001016101b7565b5050505092915050565b803560ff8116811461022757600080fd5b919050565b6000806040838503121561023f57600080fd5b61024883610216565b915061025660208401610216565b9050925092905056fea2646970667358221220b2e8d8928b84e4c021fb216943bec8e82d86e21ec75a19fe905296169f1f50d264736f6c634300080d0033a2646970667358221220cbcf261769a30dc2510e899d060514c1b2f6d57b9dbe79a9346269f0c9b78d5b64736f6c634300080d0033",
+    "sourceMap": "169:645:0:-:0;;;314:87;;;;;;;;;;387:4;358:35;;;;;:::i;:::-;-1:-1:-1;;;;;178:32:3;;;160:51;;148:2;133:18;358:35:0;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;339:16:0;:54;;-1:-1:-1;;;;;;339:54:0;-1:-1:-1;;;;;339:54:0;;;;;;;;;;169:645;;;;;;;;;;:::o;14:203:3:-;169:645:0;;;;;;",
+    "deployedSourceMap": "169:645:0:-:0;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;;519:292;;;:::i;:::-;;470:41;;;;;;;;;409:53;;;;;;;;;;-1:-1:-1;409:53:0;;;;;:::i;:::-;;;519:292;578:13;610:10;:19;602:28;;;;;;643:23;692:9;712:4;727:5;669:65;;;;;:::i;:::-;-1:-1:-1;;;;;551:15:3;;;533:34;;603:15;;598:2;583:18;;576:43;483:2;468:18;669:65:0;;;;;;;;;;;;;;;;;;;;;;;;-1:-1:-1;750:49:0;;;767:10;533:34:3;;-1:-1:-1;;;;;603:15:3;;598:2;583:18;;576:43;643:91:0;;-1:-1:-1;750:49:0;;468:18:3;750:49:0;;;;;;;557:254;;519:292::o;-1:-1:-1:-;;;;;;;;:::o;14:286:3:-;73:6;126:2;114:9;105:7;101:23;97:32;94:52;;;142:1;139;132:12;94:52;168:23;;-1:-1:-1;;;;;220:31:3;;210:42;;200:70;;266:1;263;256:12;200:70;289:5;14:286;-1:-1:-1;;;14:286:3:o",
+    "sourcePath": "c:/Users/USER/Desktop/Solidity/TickTackToeGame/GameManager.sol",
+    "compiler": {
+        "name": "solc",
+        "version": "0.8.13+commit.abaa5c0e"
+    },
+    "ast": {
+        "absolutePath": "c:/Users/USER/Desktop/Solidity/TickTackToeGame/GameManager.sol",
+        "exportedSymbols": {
+            "GameManager": [
+                83
+            ],
+            "HighScoreManager": [
+                121
+            ],
+            "ThreeInARow": [
+                202
+            ]
+        },
+        "id": 84,
+        "license": "MIT",
+        "nodeType": "SourceUnit",
+        "nodes": [
+            {
+                "id": 1,
+                "literals": [
+                    "solidity",
+                    "^",
+                    "0.8",
+                    ".13"
+                ],
+                "nodeType": "PragmaDirective",
+                "src": "33:24:0"
+            },
+            {
+                "absolutePath": "c:/Users/USER/Desktop/Solidity/TickTackToeGame/ThreeInARow.sol",
+                "file": "./ThreeInARow.sol",
+                "id": 3,
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "ImportDirective",
+                "scope": 84,
+                "sourceUnit": 203,
+                "src": "61:46:0",
+                "symbolAliases": [
+                    {
+                        "foreign": {
+                            "id": 2,
+                            "name": "ThreeInARow",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 202,
+                            "src": "69:11:0",
+                            "typeDescriptions": {}
+                        },
+                        "nameLocation": "-1:-1:-1"
+                    }
+                ],
+                "unitAlias": ""
+            },
+            {
+                "absolutePath": "c:/Users/USER/Desktop/Solidity/TickTackToeGame/HighScoreManager.sol",
+                "file": "./HighScoreManager.sol",
+                "id": 5,
+                "nameLocation": "-1:-1:-1",
+                "nodeType": "ImportDirective",
+                "scope": 84,
+                "sourceUnit": 122,
+                "src": "109:56:0",
+                "symbolAliases": [
+                    {
+                        "foreign": {
+                            "id": 4,
+                            "name": "HighScoreManager",
+                            "nodeType": "Identifier",
+                            "overloadedDeclarations": [],
+                            "referencedDeclaration": 121,
+                            "src": "117:16:0",
+                            "typeDescriptions": {}
+                        },
+                        "nameLocation": "-1:-1:-1"
+                    }
+                ],
+                "unitAlias": ""
+            },
+            {
+                "abstract": false,
+                "baseContracts": [],
+                "canonicalName": "GameManager",
+                "contractDependencies": [
+                    121,
+                    202
+                ],
+                "contractKind": "contract",
+                "fullyImplemented": true,
+                "id": 83,
+                "linearizedBaseContracts": [
+                    83
+                ],
+                "name": "GameManager",
+                "nameLocation": "178:11:0",
+                "nodeType": "ContractDefinition",
+                "nodes": [
+                    {
+                        "constant": false,
+                        "id": 8,
+                        "mutability": "mutable",
+                        "name": "highscoremanager",
+                        "nameLocation": "213:16:0",
+                        "nodeType": "VariableDeclaration",
+                        "scope": 83,
+                        "src": "196:33:0",
+                        "stateVariable": true,
+                        "storageLocation": "default",
+                        "typeDescriptions": {
+                            "typeIdentifier": "t_contract$_HighScoreManager_$121",
+                            "typeString": "contract HighScoreManager"
+                        },
+                        "typeName": {
+                            "id": 7,
+                            "nodeType": "UserDefinedTypeName",
+                            "pathNode": {
+                                "id": 6,
+                                "name": "HighScoreManager",
+                                "nodeType": "IdentifierPath",
+                                "referencedDeclaration": 121,
+                                "src": "196:16:0"
+                            },
+                            "referencedDeclaration": 121,
+                            "src": "196:16:0",
+                            "typeDescriptions": {
+                                "typeIdentifier": "t_contract$_HighScoreManager_$121",
+                                "typeString": "contract HighScoreManager"
+                            }
+                        },
+                        "visibility": "internal"
+                    },
+                    {
+                        "anonymous": false,
+                        "eventSelector": "ffedcfc5617a2a5435647110e8c02752bcaae6960ff6df59d68f13d58f550ada",
+                        "id": 14,
+                        "name": "EventGameCreated",
+                        "nameLocation": "244:16:0",
+                        "nodeType": "EventDefinition",
+                        "parameters": {
+                            "id": 13,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 10,
+                                    "indexed": false,
+                                    "mutability": "mutable",
+                                    "name": "_player",
+                                    "nameLocation": "269:7:0",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 14,
+                                    "src": "261:15:0",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 9,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "261:7:0",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                },
+                                {
+                                    "constant": false,
+                                    "id": 12,
+                                    "indexed": false,
+                                    "mutability": "mutable",
+                                    "name": "_gameAddress",
+                                    "nameLocation": "286:12:0",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 14,
+                                    "src": "278:20:0",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 11,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "278:7:0",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "260:39:0"
+                        },
+                        "src": "238:62:0"
+                    },
+                    {
+                        "body": {
+                            "id": 28,
+                            "nodeType": "Block",
+                            "src": "328:73:0",
+                            "statements": [
+                                {
+                                    "expression": {
+                                        "id": 26,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "lValueRequested": false,
+                                        "leftHandSide": {
+                                            "id": 17,
+                                            "name": "highscoremanager",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 8,
+                                            "src": "339:16:0",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_contract$_HighScoreManager_$121",
+                                                "typeString": "contract HighScoreManager"
+                                            }
+                                        },
+                                        "nodeType": "Assignment",
+                                        "operator": "=",
+                                        "rightHandSide": {
+                                            "arguments": [
+                                                {
+                                                    "arguments": [
+                                                        {
+                                                            "id": 23,
+                                                            "name": "this",
+                                                            "nodeType": "Identifier",
+                                                            "overloadedDeclarations": [],
+                                                            "referencedDeclaration": 4294967268,
+                                                            "src": "387:4:0",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_contract$_GameManager_$83",
+                                                                "typeString": "contract GameManager"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "expression": {
+                                                        "argumentTypes": [
+                                                            {
+                                                                "typeIdentifier": "t_contract$_GameManager_$83",
+                                                                "typeString": "contract GameManager"
+                                                            }
+                                                        ],
+                                                        "id": 22,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": true,
+                                                        "lValueRequested": false,
+                                                        "nodeType": "ElementaryTypeNameExpression",
+                                                        "src": "379:7:0",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_type$_t_address_$",
+                                                            "typeString": "type(address)"
+                                                        },
+                                                        "typeName": {
+                                                            "id": 21,
+                                                            "name": "address",
+                                                            "nodeType": "ElementaryTypeName",
+                                                            "src": "379:7:0",
+                                                            "typeDescriptions": {}
+                                                        }
+                                                    },
+                                                    "id": 24,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "kind": "typeConversion",
+                                                    "lValueRequested": false,
+                                                    "names": [],
+                                                    "nodeType": "FunctionCall",
+                                                    "src": "379:13:0",
+                                                    "tryCall": false,
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                }
+                                            ],
+                                            "expression": {
+                                                "argumentTypes": [
+                                                    {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                ],
+                                                "id": 20,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "nodeType": "NewExpression",
+                                                "src": "358:20:0",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_function_creation_nonpayable$_t_address_$returns$_t_contract$_HighScoreManager_$121_$",
+                                                    "typeString": "function (address) returns (contract HighScoreManager)"
+                                                },
+                                                "typeName": {
+                                                    "id": 19,
+                                                    "nodeType": "UserDefinedTypeName",
+                                                    "pathNode": {
+                                                        "id": 18,
+                                                        "name": "HighScoreManager",
+                                                        "nodeType": "IdentifierPath",
+                                                        "referencedDeclaration": 121,
+                                                        "src": "362:16:0"
+                                                    },
+                                                    "referencedDeclaration": 121,
+                                                    "src": "362:16:0",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_contract$_HighScoreManager_$121",
+                                                        "typeString": "contract HighScoreManager"
+                                                    }
+                                                }
+                                            },
+                                            "id": 25,
+                                            "isConstant": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "kind": "functionCall",
+                                            "lValueRequested": false,
+                                            "names": [],
+                                            "nodeType": "FunctionCall",
+                                            "src": "358:35:0",
+                                            "tryCall": false,
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_contract$_HighScoreManager_$121",
+                                                "typeString": "contract HighScoreManager"
+                                            }
+                                        },
+                                        "src": "339:54:0",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_contract$_HighScoreManager_$121",
+                                            "typeString": "contract HighScoreManager"
+                                        }
+                                    },
+                                    "id": 27,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "339:54:0"
+                                }
+                            ]
+                        },
+                        "id": 29,
+                        "implemented": true,
+                        "kind": "constructor",
+                        "modifiers": [],
+                        "name": "",
+                        "nameLocation": "-1:-1:-1",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 15,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "325:2:0"
+                        },
+                        "returnParameters": {
+                            "id": 16,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "328:0:0"
+                        },
+                        "scope": 83,
+                        "src": "314:87:0",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 34,
+                            "nodeType": "Block",
+                            "src": "452:10:0",
+                            "statements": []
+                        },
+                        "functionSelector": "d2add17b",
+                        "id": 35,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "enterWinner",
+                        "nameLocation": "418:11:0",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 32,
+                            "nodeType": "ParameterList",
+                            "parameters": [
+                                {
+                                    "constant": false,
+                                    "id": 31,
+                                    "mutability": "mutable",
+                                    "name": "_winner",
+                                    "nameLocation": "438:7:0",
+                                    "nodeType": "VariableDeclaration",
+                                    "scope": 35,
+                                    "src": "430:15:0",
+                                    "stateVariable": false,
+                                    "storageLocation": "default",
+                                    "typeDescriptions": {
+                                        "typeIdentifier": "t_address",
+                                        "typeString": "address"
+                                    },
+                                    "typeName": {
+                                        "id": 30,
+                                        "name": "address",
+                                        "nodeType": "ElementaryTypeName",
+                                        "src": "430:7:0",
+                                        "stateMutability": "nonpayable",
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_address",
+                                            "typeString": "address"
+                                        }
+                                    },
+                                    "visibility": "internal"
+                                }
+                            ],
+                            "src": "429:17:0"
+                        },
+                        "returnParameters": {
+                            "id": 33,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "452:0:0"
+                        },
+                        "scope": 83,
+                        "src": "409:53:0",
+                        "stateMutability": "nonpayable",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 38,
+                            "nodeType": "Block",
+                            "src": "501:10:0",
+                            "statements": []
+                        },
+                        "functionSelector": "84837ee1",
+                        "id": 39,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "getTop10",
+                        "nameLocation": "479:8:0",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 36,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "487:2:0"
+                        },
+                        "returnParameters": {
+                            "id": 37,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "501:0:0"
+                        },
+                        "scope": 83,
+                        "src": "470:41:0",
+                        "stateMutability": "view",
+                        "virtual": false,
+                        "visibility": "public"
+                    },
+                    {
+                        "body": {
+                            "id": 81,
+                            "nodeType": "Block",
+                            "src": "557:254:0",
+                            "statements": [
+                                {
+                                    "assignments": [
+                                        43
+                                    ],
+                                    "declarations": [
+                                        {
+                                            "constant": false,
+                                            "id": 43,
+                                            "mutability": "mutable",
+                                            "name": "admin",
+                                            "nameLocation": "586:5:0",
+                                            "nodeType": "VariableDeclaration",
+                                            "scope": 81,
+                                            "src": "578:13:0",
+                                            "stateVariable": false,
+                                            "storageLocation": "default",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_address",
+                                                "typeString": "address"
+                                            },
+                                            "typeName": {
+                                                "id": 42,
+                                                "name": "address",
+                                                "nodeType": "ElementaryTypeName",
+                                                "src": "578:7:0",
+                                                "stateMutability": "nonpayable",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            },
+                                            "visibility": "internal"
+                                        }
+                                    ],
+                                    "id": 44,
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "src": "578:13:0"
+                                },
+                                {
+                                    "expression": {
+                                        "arguments": [
+                                            {
+                                                "commonType": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                },
+                                                "id": 49,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "leftExpression": {
+                                                    "expression": {
+                                                        "id": 46,
+                                                        "name": "msg",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 4294967281,
+                                                        "src": "610:3:0",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_magic_message",
+                                                            "typeString": "msg"
+                                                        }
+                                                    },
+                                                    "id": 47,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "memberName": "sender",
+                                                    "nodeType": "MemberAccess",
+                                                    "src": "610:10:0",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "nodeType": "BinaryOperation",
+                                                "operator": "==",
+                                                "rightExpression": {
+                                                    "id": 48,
+                                                    "name": "admin",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 43,
+                                                    "src": "624:5:0",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_address",
+                                                        "typeString": "address"
+                                                    }
+                                                },
+                                                "src": "610:19:0",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_bool",
+                                                    "typeString": "bool"
+                                                }
+                                            ],
+                                            "id": 45,
+                                            "name": "require",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [
+                                                4294967278,
+                                                4294967278
+                                            ],
+                                            "referencedDeclaration": 4294967278,
+                                            "src": "602:7:0",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_require_pure$_t_bool_$returns$__$",
+                                                "typeString": "function (bool) pure"
+                                            }
+                                        },
+                                        "id": 50,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "602:28:0",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 51,
+                                    "nodeType": "ExpressionStatement",
+                                    "src": "602:28:0"
+                                },
+                                {
+                                    "assignments": [
+                                        54
+                                    ],
+                                    "declarations": [
+                                        {
+                                            "constant": false,
+                                            "id": 54,
+                                            "mutability": "mutable",
+                                            "name": "threeInARow",
+                                            "nameLocation": "655:11:0",
+                                            "nodeType": "VariableDeclaration",
+                                            "scope": 81,
+                                            "src": "643:23:0",
+                                            "stateVariable": false,
+                                            "storageLocation": "default",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_contract$_ThreeInARow_$202",
+                                                "typeString": "contract ThreeInARow"
+                                            },
+                                            "typeName": {
+                                                "id": 53,
+                                                "nodeType": "UserDefinedTypeName",
+                                                "pathNode": {
+                                                    "id": 52,
+                                                    "name": "ThreeInARow",
+                                                    "nodeType": "IdentifierPath",
+                                                    "referencedDeclaration": 202,
+                                                    "src": "643:11:0"
+                                                },
+                                                "referencedDeclaration": 202,
+                                                "src": "643:11:0",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_contract$_ThreeInARow_$202",
+                                                    "typeString": "contract ThreeInARow"
+                                                }
+                                            },
+                                            "visibility": "internal"
+                                        }
+                                    ],
+                                    "id": 71,
+                                    "initialValue": {
+                                        "arguments": [
+                                            {
+                                                "arguments": [
+                                                    {
+                                                        "id": 64,
+                                                        "name": "this",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 4294967268,
+                                                        "src": "712:4:0",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_contract$_GameManager_$83",
+                                                            "typeString": "contract GameManager"
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "argumentTypes": [
+                                                        {
+                                                            "typeIdentifier": "t_contract$_GameManager_$83",
+                                                            "typeString": "contract GameManager"
+                                                        }
+                                                    ],
+                                                    "id": 63,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": true,
+                                                    "lValueRequested": false,
+                                                    "nodeType": "ElementaryTypeNameExpression",
+                                                    "src": "704:7:0",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_type$_t_address_$",
+                                                        "typeString": "type(address)"
+                                                    },
+                                                    "typeName": {
+                                                        "id": 62,
+                                                        "name": "address",
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "src": "704:7:0",
+                                                        "typeDescriptions": {}
+                                                    }
+                                                },
+                                                "id": 65,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "kind": "typeConversion",
+                                                "lValueRequested": false,
+                                                "names": [],
+                                                "nodeType": "FunctionCall",
+                                                "src": "704:13:0",
+                                                "tryCall": false,
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            },
+                                            {
+                                                "arguments": [
+                                                    {
+                                                        "id": 68,
+                                                        "name": "admin",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 43,
+                                                        "src": "727:5:0",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_address",
+                                                            "typeString": "address"
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "argumentTypes": [
+                                                        {
+                                                            "typeIdentifier": "t_address",
+                                                            "typeString": "address"
+                                                        }
+                                                    ],
+                                                    "id": 67,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": true,
+                                                    "lValueRequested": false,
+                                                    "nodeType": "ElementaryTypeNameExpression",
+                                                    "src": "719:8:0",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_type$_t_address_payable_$",
+                                                        "typeString": "type(address payable)"
+                                                    },
+                                                    "typeName": {
+                                                        "id": 66,
+                                                        "name": "address",
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "src": "719:8:0",
+                                                        "stateMutability": "payable",
+                                                        "typeDescriptions": {}
+                                                    }
+                                                },
+                                                "id": 69,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "kind": "typeConversion",
+                                                "lValueRequested": false,
+                                                "names": [],
+                                                "nodeType": "FunctionCall",
+                                                "src": "719:14:0",
+                                                "tryCall": false,
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address_payable",
+                                                    "typeString": "address payable"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                },
+                                                {
+                                                    "typeIdentifier": "t_address_payable",
+                                                    "typeString": "address payable"
+                                                }
+                                            ],
+                                            "components": [
+                                                {
+                                                    "expression": {
+                                                        "id": 57,
+                                                        "isConstant": false,
+                                                        "isLValue": false,
+                                                        "isPure": false,
+                                                        "lValueRequested": false,
+                                                        "nodeType": "NewExpression",
+                                                        "src": "670:15:0",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_function_creation_payable$_t_address_$_t_address_payable_$returns$_t_contract$_ThreeInARow_$202_$",
+                                                            "typeString": "function (address,address payable) payable returns (contract ThreeInARow)"
+                                                        },
+                                                        "typeName": {
+                                                            "id": 56,
+                                                            "nodeType": "UserDefinedTypeName",
+                                                            "pathNode": {
+                                                                "id": 55,
+                                                                "name": "ThreeInARow",
+                                                                "nodeType": "IdentifierPath",
+                                                                "referencedDeclaration": 202,
+                                                                "src": "674:11:0"
+                                                            },
+                                                            "referencedDeclaration": 202,
+                                                            "src": "674:11:0",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_contract$_ThreeInARow_$202",
+                                                                "typeString": "contract ThreeInARow"
+                                                            }
+                                                        }
+                                                    },
+                                                    "id": 60,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": false,
+                                                    "lValueRequested": false,
+                                                    "names": [
+                                                        "value"
+                                                    ],
+                                                    "nodeType": "FunctionCallOptions",
+                                                    "options": [
+                                                        {
+                                                            "expression": {
+                                                                "id": 58,
+                                                                "name": "msg",
+                                                                "nodeType": "Identifier",
+                                                                "overloadedDeclarations": [],
+                                                                "referencedDeclaration": 4294967281,
+                                                                "src": "692:3:0",
+                                                                "typeDescriptions": {
+                                                                    "typeIdentifier": "t_magic_message",
+                                                                    "typeString": "msg"
+                                                                }
+                                                            },
+                                                            "id": 59,
+                                                            "isConstant": false,
+                                                            "isLValue": false,
+                                                            "isPure": false,
+                                                            "lValueRequested": false,
+                                                            "memberName": "value",
+                                                            "nodeType": "MemberAccess",
+                                                            "src": "692:9:0",
+                                                            "typeDescriptions": {
+                                                                "typeIdentifier": "t_uint256",
+                                                                "typeString": "uint256"
+                                                            }
+                                                        }
+                                                    ],
+                                                    "src": "670:32:0",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_function_creation_payable$_t_address_$_t_address_payable_$returns$_t_contract$_ThreeInARow_$202_$value",
+                                                        "typeString": "function (address,address payable) payable returns (contract ThreeInARow)"
+                                                    }
+                                                }
+                                            ],
+                                            "id": 61,
+                                            "isConstant": false,
+                                            "isInlineArray": false,
+                                            "isLValue": false,
+                                            "isPure": false,
+                                            "lValueRequested": false,
+                                            "nodeType": "TupleExpression",
+                                            "src": "669:34:0",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_creation_payable$_t_address_$_t_address_payable_$returns$_t_contract$_ThreeInARow_$202_$value",
+                                                "typeString": "function (address,address payable) payable returns (contract ThreeInARow)"
+                                            }
+                                        },
+                                        "id": 70,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "669:65:0",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_contract$_ThreeInARow_$202",
+                                            "typeString": "contract ThreeInARow"
+                                        }
+                                    },
+                                    "nodeType": "VariableDeclarationStatement",
+                                    "src": "643:91:0"
+                                },
+                                {
+                                    "eventCall": {
+                                        "arguments": [
+                                            {
+                                                "expression": {
+                                                    "id": 73,
+                                                    "name": "msg",
+                                                    "nodeType": "Identifier",
+                                                    "overloadedDeclarations": [],
+                                                    "referencedDeclaration": 4294967281,
+                                                    "src": "767:3:0",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_magic_message",
+                                                        "typeString": "msg"
+                                                    }
+                                                },
+                                                "id": 74,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "lValueRequested": false,
+                                                "memberName": "sender",
+                                                "nodeType": "MemberAccess",
+                                                "src": "767:10:0",
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            },
+                                            {
+                                                "arguments": [
+                                                    {
+                                                        "id": 77,
+                                                        "name": "threeInARow",
+                                                        "nodeType": "Identifier",
+                                                        "overloadedDeclarations": [],
+                                                        "referencedDeclaration": 54,
+                                                        "src": "786:11:0",
+                                                        "typeDescriptions": {
+                                                            "typeIdentifier": "t_contract$_ThreeInARow_$202",
+                                                            "typeString": "contract ThreeInARow"
+                                                        }
+                                                    }
+                                                ],
+                                                "expression": {
+                                                    "argumentTypes": [
+                                                        {
+                                                            "typeIdentifier": "t_contract$_ThreeInARow_$202",
+                                                            "typeString": "contract ThreeInARow"
+                                                        }
+                                                    ],
+                                                    "id": 76,
+                                                    "isConstant": false,
+                                                    "isLValue": false,
+                                                    "isPure": true,
+                                                    "lValueRequested": false,
+                                                    "nodeType": "ElementaryTypeNameExpression",
+                                                    "src": "778:7:0",
+                                                    "typeDescriptions": {
+                                                        "typeIdentifier": "t_type$_t_address_$",
+                                                        "typeString": "type(address)"
+                                                    },
+                                                    "typeName": {
+                                                        "id": 75,
+                                                        "name": "address",
+                                                        "nodeType": "ElementaryTypeName",
+                                                        "src": "778:7:0",
+                                                        "typeDescriptions": {}
+                                                    }
+                                                },
+                                                "id": 78,
+                                                "isConstant": false,
+                                                "isLValue": false,
+                                                "isPure": false,
+                                                "kind": "typeConversion",
+                                                "lValueRequested": false,
+                                                "names": [],
+                                                "nodeType": "FunctionCall",
+                                                "src": "778:20:0",
+                                                "tryCall": false,
+                                                "typeDescriptions": {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            }
+                                        ],
+                                        "expression": {
+                                            "argumentTypes": [
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                },
+                                                {
+                                                    "typeIdentifier": "t_address",
+                                                    "typeString": "address"
+                                                }
+                                            ],
+                                            "id": 72,
+                                            "name": "EventGameCreated",
+                                            "nodeType": "Identifier",
+                                            "overloadedDeclarations": [],
+                                            "referencedDeclaration": 14,
+                                            "src": "750:16:0",
+                                            "typeDescriptions": {
+                                                "typeIdentifier": "t_function_event_nonpayable$_t_address_$_t_address_$returns$__$",
+                                                "typeString": "function (address,address)"
+                                            }
+                                        },
+                                        "id": 79,
+                                        "isConstant": false,
+                                        "isLValue": false,
+                                        "isPure": false,
+                                        "kind": "functionCall",
+                                        "lValueRequested": false,
+                                        "names": [],
+                                        "nodeType": "FunctionCall",
+                                        "src": "750:49:0",
+                                        "tryCall": false,
+                                        "typeDescriptions": {
+                                            "typeIdentifier": "t_tuple$__$",
+                                            "typeString": "tuple()"
+                                        }
+                                    },
+                                    "id": 80,
+                                    "nodeType": "EmitStatement",
+                                    "src": "745:54:0"
+                                }
+                            ]
+                        },
+                        "functionSelector": "482d51e0",
+                        "id": 82,
+                        "implemented": true,
+                        "kind": "function",
+                        "modifiers": [],
+                        "name": "startNewGame",
+                        "nameLocation": "528:12:0",
+                        "nodeType": "FunctionDefinition",
+                        "parameters": {
+                            "id": 40,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "540:2:0"
+                        },
+                        "returnParameters": {
+                            "id": 41,
+                            "nodeType": "ParameterList",
+                            "parameters": [],
+                            "src": "557:0:0"
+                        },
+                        "scope": 83,
+                        "src": "519:292:0",
+                        "stateMutability": "payable",
+                        "virtual": false,
+                        "visibility": "public"
+                    }
+                ],
+                "scope": 84,
+                "src": "169:645:0",
+                "usedErrors": []
+            }
+        ],
+        "src": "33:781:0"
+    },
+    "functionHashes": {
+        "enterWinner(address)": "d2add17b",
+        "getTop10()": "84837ee1",
+        "startNewGame()": "482d51e0"
+    },
+    "gasEstimates": {
+        "creation": {
+            "codeDepositCost": "263600",
+            "executionCost": "infinite",
+            "totalCost": "infinite"
+        },
+        "external": {
+            "enterWinner(address)": "279",
+            "getTop10()": "123",
+            "startNewGame()": "infinite"
+        }
+    }
+}
