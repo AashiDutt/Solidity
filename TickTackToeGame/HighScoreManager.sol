@@ -1,8 +1,10 @@
 // SPDX-License-Identifier: MIT
 pragma solidity ^0.8.13;
 
-contract HighScoreManager{
+contract HighscoreManager{
     address gameManager;
+
+    event NewWinAdded(address _for, uint _totalWins);
 
     constructor(address _gameManager){
         gameManager = _gameManager;
@@ -27,6 +29,8 @@ contract HighScoreManager{
     function addWin(address _for) public onlyGameManager{
         highscoreMapping[_for].numberOfWins++;
         highscoreMapping[_for].timeOfLastWin = block.timestamp;
+
+        emit NewWinAdded(_for, highscoreMapping[_for].numberOfWins);
 
         // Highscore list is initially empty
         if(highscoreHolder == address(0)){

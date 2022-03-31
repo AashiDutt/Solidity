@@ -15,6 +15,10 @@ contract ThreeInARow{
     event PlayerJoined(address _player);
     event NextPlayer(address _player);
 
+    event GameOverWithWin(address _winner);
+    event GameOverWithDraw();
+    event PayoutSuccess(address _reciever, uint _amountInWei);
+
     bool gameActive;
 
     address[3][3] gameBoard;
@@ -151,8 +155,12 @@ contract ThreeInARow{
                 balanceToWithdrawPlayer1 += balanceToPayOut;
             } else{
                 balanceToWithdrawPlayer2 += balanceToPayOut;
-            }
+            } 
+        } else {
+             emit PayoutSuccess(_player, balanceToPayOut);
         }
+        
+        emit GameOverWithWin(_player);
     }
 
 // if the game is draw
@@ -161,11 +169,16 @@ contract ThreeInARow{
 
         if(player1.send(balanceToPayOut) == false){
             balanceToWithdrawPlayer1 += balanceToPayOut;
+        } else{
+            emit PayoutSuccess(player1, balanceToPayOut);
         }
         if(player2.send(balanceToPayOut)== false){
             balanceToWithdrawPlayer2 += balanceToPayOut;
+        } else{
+            emit PayoutSuccess(player2, balanceToPayOut);
         }
 
+        emit GameOverWithDraw();
     }
 
 //if some problem arises while transfering ether at cashout/ win
@@ -176,6 +189,7 @@ contract ThreeInARow{
             balanceToWithdraw = balanceToWithdrawPlayer1;
             balanceToWithdrawPlayer1 = 0;
             _to.transfer(balanceToWithdraw);
+            emit PayoutSuccess(_to, balanceToWithdraw);
         }
 
         if(msg.sender == player2){
@@ -183,6 +197,7 @@ contract ThreeInARow{
             balanceToWithdraw = balanceToWithdrawPlayer2;
             balanceToWithdrawPlayer2 = 0;
             _to.transfer(balanceToWithdraw);
+            emit PayoutSuccess(_to, balanceToWithdraw);
         }
     }
 

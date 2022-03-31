@@ -2,16 +2,16 @@
 pragma solidity ^0.8.13;
 
 import {ThreeInARow} from "./ThreeInARow.sol";
-import {HighScoreManager} from "./HighScoreManager.sol";
+import {HighscoreManager} from "./Highscoremanager.sol";
 
 contract GameManager{
-    HighScoreManager highscoremanager;
+    HighscoreManager highscoremanager;
 
     event EventGameCreated(address _player, address _gameAddress);
     mapping(address => bool) allowedToEnterHighscore;
 
     constructor() {
-        highscoremanager = new HighScoreManager(address(this));
+        highscoremanager = new HighscoreManager(address(this));
     }
 
     modifier onlyInGameHighscoreEditing{
